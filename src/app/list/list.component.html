@@ -1,0 +1,11 @@
+<ul class="list-group">
+  <li
+    class="list-group-item d-flex justify-content-between align-items-center"
+    *ngFor="let tech of technologies"
+  >
+    {{ tech.technology }}
+    <span class="badge badge-success badge-pill"
+      >{{ tech.experience }} month(s)</span
+    >
+  </li>
+</ul>
