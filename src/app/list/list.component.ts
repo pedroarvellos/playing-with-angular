@@ -19,4 +19,9 @@ export class ListComponent implements OnInit {
       .getAll()
       .subscribe((technologies) => this.technologies = technologies);
   }
+
+  delete(id: number) {
+    console.log(id)
+    this.service.delete(id).subscribe((technologies) => this.technologies = technologies);
+  }
 }

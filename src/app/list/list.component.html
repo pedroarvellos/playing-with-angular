@@ -4,8 +4,9 @@
     *ngFor="let tech of technologies"
   >
     {{ tech.technology }}
-    <span class="badge badge-success badge-pill"
-      >{{ tech.experience }} month(s)</span
-    >
+      <span class="badge badge-light badge-pill"
+        ><small class="form-text text-muted">{{ tech.experience }} month(s)</small></span
+      >
+      <button class="btn btn-outline-danger btn-sm" (click)="delete(tech.id)">DELETE</button>
   </li>
 </ul>
