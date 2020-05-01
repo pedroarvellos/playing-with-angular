@@ -10,16 +10,16 @@ export type Technology = {
   providedIn: "root",
 })
 export class TechnologiesService {
-  technologyList: Technology[] = [{ technology: "JS", experience: 35 }];
+  technologyList: Technology[] = [];
 
   getAll(): Observable<Technology[]> {
     return of(this.technologyList);
   }
 
-  add(technology: Technology): Observable<Technology[]> {
+  add(technology: Technology): Observable<Technology> {
     return new Observable(subscriber => {
       this.technologyList.push(technology);
-      subscriber.next(this.technologyList);
+      subscriber.next(technology);
       subscriber.complete();
     })
   }

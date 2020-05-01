@@ -7,7 +7,6 @@
       class="form-control"
       id="technology"
       aria-describedby="technologyHelp"
-      (ngModelChange)="checkValue()"
     />
     <div *ngIf="technology.errors && !technology.pristine">
         <small *ngIf="technology.errors.required" class="form-text text-muted">Please, enter a technology.</small>

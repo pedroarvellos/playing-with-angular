@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
-import { Technology } from '../services/technology.service';
+import {
+  Technology,
+  TechnologiesService,
+} from "../services/technology.service";
 
 @Component({
   selector: "app-form",
@@ -11,7 +14,10 @@ export class FormComponent implements OnInit {
   formName = "Technology Form";
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: TechnologiesService
+  ) {}
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -35,15 +41,15 @@ export class FormComponent implements OnInit {
     return this.form.controls["experience"];
   }
 
-  checkValue() {
-    console.log(this.technology);
-  }
-
   addTechnology() {
     const technology: Technology = {
       technology: this.technology.value,
       experience: this.experience.value,
     };
-    console.log(technology);
+
+    this.service.add(technology).subscribe((technology) => {
+      console.log(technology.technology + " added.");
+      this.form.reset();
+    });
   }
 }
