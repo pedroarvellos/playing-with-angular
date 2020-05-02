@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  AfterViewInit,
-  Renderer,
-  ElementRef,
-} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 import {
   Technology,
@@ -17,15 +10,13 @@ import {
   templateUrl: "./form.component.html",
   styleUrls: ["./form.component.scss"],
 })
-export class FormComponent implements OnInit, AfterViewInit {
-  @ViewChild("technology", { static: true }) technologyReference: ElementRef;
+export class FormComponent implements OnInit {
   formName = "Technology Form";
   form: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private service: TechnologiesService,
-    private renderer: Renderer
+    private service: TechnologiesService
   ) {}
 
   ngOnInit() {
@@ -40,17 +31,6 @@ export class FormComponent implements OnInit, AfterViewInit {
         ],
       ],
     });
-  }
-
-  // I am using ngAfterViewInit just to put focus on the form with
-  // a DOM reference of the component. I got this reference with the
-  // decorator ViewChild, and the reference of this HTML element
-  // is got by the #. Of course, this is not the greatest way to
-  // do it. This is just to examplify the use of Redender2.
-  ngAfterViewInit() {
-    this.renderer.invokeElementMethod(this.technologyReference.nativeElement, "focus");
-    // with this Rederer, I can change color (and many other things), for example
-    // this.renderer.setElementStyle(this.technologyReference.nativeElement, "color", "pink");
   }
 
   get technology() {

@@ -6,9 +6,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FormComponent } from "./form/form.component";
 import { ListComponent } from "./list/list.component";
+import { AttributeDirective } from './form/attribute.directive';
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, ListComponent],
+  declarations: [AppComponent, FormComponent, ListComponent, AttributeDirective],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
