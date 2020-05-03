@@ -1,4 +1,4 @@
-import { AttributeDirective } from './attribute.directive';
+import { AttributeDirective } from './focus.directive';
 
 describe('AttributeDirective', () => {
   it('should create an instance', () => {

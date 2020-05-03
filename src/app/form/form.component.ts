@@ -13,6 +13,7 @@ import {
 export class FormComponent implements OnInit {
   formName = "Technology Form";
   form: FormGroup;
+  confirmationMessage: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -48,8 +49,8 @@ export class FormComponent implements OnInit {
     };
 
     this.service.add(technology).subscribe((technology) => {
-      console.log(technology.technology + " added.");
       this.form.reset();
+      this.confirmationMessage = technology.technology + " added."
     });
   }
 }

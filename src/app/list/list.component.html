@@ -7,6 +7,8 @@
       <span class="badge badge-light badge-pill"
         ><small class="form-text text-muted">{{ tech.experience }} month(s)</small></span
       >
-      <button class="btn btn-outline-danger btn-sm" (click)="delete(tech.id)">DELETE</button>
+      <button class="btn btn-outline-danger btn-sm" (click)="delete(tech)">DELETE</button>
   </li>
+  <br>
+  <app-confirmation-message [message]="confirmationMessage"></app-confirmation-message>
 </ul>

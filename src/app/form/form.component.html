@@ -3,7 +3,7 @@
     <label for="technology">Technology</label>
     <!-- CD is an attribute directive for focus -->
     <input
-      ad-focus
+      cdFocus
       formControlName="technology"
       type="text"
       class="form-control"
@@ -39,4 +39,6 @@
       Submit
     </button>
   </div>
+  <br>
+  <app-confirmation-message [message]="confirmationMessage"></app-confirmation-message>
 </form>

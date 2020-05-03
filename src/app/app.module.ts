@@ -6,10 +6,11 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FormComponent } from "./form/form.component";
 import { ListComponent } from "./list/list.component";
-import { AttributeDirective } from './form/attribute.directive';
+import { FocusDirective } from './form/focus.directive';
+import { ConfirmationMessageComponent } from './confirmation-message/confirmation-message.component';
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, ListComponent, AttributeDirective],
+  declarations: [AppComponent, FormComponent, ListComponent, FocusDirective, ConfirmationMessageComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

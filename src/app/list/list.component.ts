@@ -11,17 +11,22 @@ import {
 })
 export class ListComponent implements OnInit {
   technologies: Technology[];
+  confirmationMessage: string;
 
   constructor(private service: TechnologiesService) {}
 
   ngOnInit() {
     this.service
       .getAll()
-      .subscribe((technologies) => this.technologies = technologies);
+      .subscribe((technologies) => (this.technologies = technologies));
+
+    this.confirmationMessage = "Technologies fetched!";
   }
 
-  delete(id: number) {
-    console.log(id)
-    this.service.delete(id).subscribe((technologies) => this.technologies = technologies);
+  delete(technology: Technology) {
+    this.service.delete(technology.id).subscribe((technologies) => {
+      this.technologies = technologies;
+      this.confirmationMessage = technology.technology + " deleted!";
+    });
   }
 }
